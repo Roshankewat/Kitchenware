@@ -1,0 +1,643 @@
+*{
+    margin: 0;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+    
+}
+
+/* slider*/
+
+.slider{
+    padding-top: 0px;
+    width: 100%;
+    overflow: hidden;
+
+}
+.slides{
+    display: flex;
+    width: 100%;
+    animation: slide 10s infinite;
+}
+.slides img{
+    width: 100%;
+
+}
+
+
+@keyframes slide {
+  0%   { margin-left: 0; }        /* 1st image */
+  20%  { margin-left: 0; }
+
+  25%  { margin-left: -100%; }    /* 2nd image */
+  40%  { margin-left: -100%; }
+
+  45%  { margin-left: -200%; }    /* 3rd image */
+  60%  { margin-left: -200%; }
+
+  65%  { margin-left: -300%; }    /* 4th image */
+  80%  { margin-left: -300%; }
+
+  85%  { margin-left: -400%; }    /* 5th image */
+  100% { margin-left: -400%; }    /* Loop ends and restarts */
+}
+
+
+
+/*2nd image*/
+.header-img{
+    background:url(Nelkon_Header.jpg);
+    background-size: cover;
+    height: 310px;
+    width: 100%;
+
+}
+
+/*releted to search field home contact*/
+/* Basic navbar styling */
+.nav-bar {
+  background-color: #003d52;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  position: relative;
+}
+
+/* Menu links */
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 25px;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Hamburger icon */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------- Responsive Styles ---------- */
+@media (max-width: 768px) {
+  /* Stack layout */
+  .nav-bar {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+  }
+
+  /* Hide menu initially */
+  .menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: #003d52;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .menu a {
+    margin: 10px 0;
+    display: block;
+  }
+
+  /* Show hamburger icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* When checkbox checked — show menu */
+  #menu-toggle:checked + .menu-icon + .menu {
+    display: flex;
+  }
+}
+
+
+
+
+
+
+
+/*box content*/
+* .box{
+  margin: auto;
+  padding: auto;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box-new{
+    height: 100%;
+    width: 180px;
+    margin-top: 30px;   
+}
+/* Overall Section */
+.shop-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #f2f2f2;
+  padding: 20px 0;
+}
+
+/* Each Product Box */
+.box {
+  background-color: white;
+  height: 350px;
+  width: 23%;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Inside Content */
+.box-content {
+  padding: 20px;
+}
+
+.box-content h2 {
+  font-size: 20px;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.box-img {
+  height: 230px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+/* For the “See more” link */
+.box-content p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.box-content p a {
+  text-decoration: none;
+  color: #007185;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.box-content p a:hover {
+  color: #c7511f;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 90%;
+  }
+
+  .box-content h2 {
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+
+/*footer*/
+
+footer{
+    margin-top: 15px;
+}
+.foot-panel1{
+     background-color: #37475a;
+     color: white;
+     height: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 0.9rem;
+}
+
+.foot-panel2{
+    background-color: #222f3d;
+    color: white;
+    height: 180px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul{
+    margin: 20px;
+}
+
+ul a{
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
+
+.foot-panel3{
+    background-color: #222f3d;
+    color: white;
+    border-top: 0.5px solid white ;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    background: url(amazon_logo.png);
+    background-size: cover;
+    height: 50px;
+    width: 100px;
+    margin-right: 100px;
+    
+}
+.foot-panel4{
+    background-color: #0f1111;
+    color: white;
+    height: 100px;
+    font-size: 0.7rem;
+  text-align: center;
+}
+
+.pages{
+   
+   padding-top: 25px;
+}
+.copyright{
+    padding: 5px;
+  
+}
+
+.wrld-logo{
+    height: 30px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: rgba(0,0,0,0.3);
+    color: white;  
+}
+.wrld{
+    display: flex;
+    margin: 8px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+/*2nd head tag with button dropdwan*/
+
+.header {
+    background-color: #003d52;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index: 10;
+}
+/*  .main {
+    height: 100%;
+    margin-top: 60px;
+    padding: 10px 50px;
+}
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    margin-top: 60px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+    background: #2e86de;
+}
+
+*/
+
+/*
+#openSidebarMenu:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input#openSidebarMenu{
+    display: none;
+}
+.sidebarIconToggle {
+  height: 22px;
+    width: 22px;
+    position: absolute;
+    z-index: 99;
+    top: 22px;
+    left: 15px;
+    transition: all 0.3s;
+    cursor: pointer; 
+}
+.spinner {
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.spinner.middle ,
+.spinner.bottom{
+    margin-top: 3px;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.middle {
+    opacity: 0;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.top {
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.bottom {
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+
+/*dropdown menu*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Hidden checkbox to control click */
+  .dropdown input[type="checkbox"] {
+    display: none;
+  }
+
+  .dropdown-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+    text-align: left;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #303437;
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    margin-top: 25px;
+  }
+
+  /* When checkbox is checked, show menu */
+  .dropdown input[type="checkbox"]:checked ~ .dropdown-menu {
+    max-height: 200px;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .dropdown-item:hover {
+    background-color: #0056b3;
+  }
+
+
+
+  /*for 1st navigation bar*/
+
+nav {
+    display: flex;
+    width: 1460px;
+    background: #0a5071;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+nav .icon {
+    font-size: 35px;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav ol {
+    display: flex;
+    list-style: none;
+    margin: auto 0;
+}
+
+nav ol li {
+    margin: 0 2px;
+}
+
+nav ol li a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+}
+
+nav ol li:hover a {
+    background: #fff;
+    color: #0a5071;
+}
+
+nav .search_box {
+    display: flex;
+    margin: auto 0;
+    height: 35px;
+    line-height: 35px;
+}
+
+nav .search_box input {
+    border: none;
+    outline: none;
+    background: #fff;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 350px;
+    border-top-left-radius: 5px 5px;
+}
+
+nav .search_box span {
+    color: #0a5071;
+    font-size: 20px;
+    background: #fff;
+    height: auto;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+nav .search_box span:hover {
+    color: #fff;
+}
+
+nav .search_box span::after {
+    height: 100%;
+    width: 0%;
+    content: '';
+    background: #ff003c;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+nav .search_box span:hover::after {
+    width: 100%;
+}
+
+nav .bar {
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+nav .bar span {
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    display: none;
+}
+
+@media screen and (max-width:1250px) {
+    nav {
+        display: block;
+        padding: 0;
+        width: auto;
+    }
+
+    nav .icon {
+        display: inline-block;
+        padding: 15px 30px;
+    }
+
+    nav .search_box {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    nav .search_box input {
+        width: 90%;
+    }
+
+    /* FIXED: Menu default hidden state */
+    nav ol {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: height 0.3s ease, visibility 0.3s ease;
+    }
+
+    nav ol li {
+        text-align: center;
+        transition: 0.3s 0.1s all;
+        opacity: 0;
+    }
+
+    nav ol li a {
+        color: #000;
+        font-size: 28px;
+        padding: 25px;
+        display: block;
+    }
+
+    nav ol li:nth-child(1) {
+        transform: translateX(-150px);
+    }
+    nav ol li:nth-child(2) {
+        transform: translateX(-200px);
+    }
+    nav ol li:nth-child(3) {
+        transform: translateX(-250px);
+    }
+    nav ol li:nth-child(4) {
+        transform: translateX(-300px);
+    }
+    nav ol li:nth-child(5) {
+        transform: translateX(-350px);
+    }
+
+    nav .bar {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        cursor: pointer;
+    }
+
+    nav .bar #times {
+        display: none;
+    }
+
+    /* FIXED: Change ~ to + (adjacent sibling) */
+    #check:checked + nav .bar #times {
+        display: block;
+    }
+
+    #check:checked + nav .bar #bars {
+        display: none;
+    }
+
+    /* FIXED: Make menu visible when checked */
+    #check:checked + nav ol {
+        visibility: visible;
+        height: 465px;
+    }
+
+    #check:checked + nav ol li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
