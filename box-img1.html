@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nelkon Kitchenware</title>
+  <title>Animated Image Slider with Content</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,9 +22,9 @@
       border-radius: 10px;
       background: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
     }
 
-    /* Image container for slider */
     .slider {
       width: 500px;
       height: 500px;
@@ -30,6 +32,7 @@
       overflow: hidden;
       margin-right: 20px;
       position: relative;
+      flex-shrink: 0;
     }
 
     .slides {
@@ -46,7 +49,6 @@
       border-radius: 10px;
     }
 
-    /* Keyframe for sliding images */
     @keyframes slide {
       0%   { margin-left: 0; }
       20%  { margin-left: 0; }
@@ -61,234 +63,160 @@
 
     .content {
       flex: 1;
+      min-width: 250px;
     }
 
     .content h2 {
       margin: 0;
       color: #003d52;
+      font-size: 1.6rem;
     }
 
     .content p {
       margin-top: 10px;
       line-height: 1.6;
       color: #333;
+      font-size: 1rem;
     }
 
-    /* Responsive */
+    .btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 150px;
+      margin: 20px auto;
+      display: block;
+      font-size: 1rem;
+    }
+
+    /* === Improved Table Styling === */
+    h2 {
+      text-align: left;
+      color: #c0392b;
+      margin-top: 30px;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 450px;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      padding: 10px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #003d52;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    tr:hover {
+      background-color: #e6f2ff;
+      transition: 0.3s;
+    }
+
+    td {
+      color: #333;
+    }
+
+    /* 🔹 Responsive Table (Stack on very small screens) */
     @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        padding: 10px;
+      }
+
+      td {
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #003d52;
+      }
+    }
+
+    @media (max-width: 768px) {
       .image-section {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
       }
 
       .slider {
+        width: 100%;
+        height: auto;
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      .slides img {
         width: 100%;
         height: auto;
       }
-    }
-.btn{
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 150px;
-    text-align: left;
-    margin-top:10px ;
-    align-items: center;
-    margin-left: 40%;
-}
 
-
-
-
-:root{
-      --card-bg: #ffffff;
-      --surface: #f6f8fa;
-      --accent: #0f6cff;
-      --muted: #6b7280;
-      --radius: 12px;
-      --shadow: 0 6px 18px rgba(12, 20, 40, 0.08);
-      --gap: 18px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-
-    body{
-      margin: 20px;
-      background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 100%);
-      color: #0b1220;
-    }
-
-    .product-chart{
-      display: grid;
-      gap: 18px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    /* single product card */
-    .product-card{
-      display: grid;
-      grid-template-columns: 320px 1fr; /* image column + info column */
-      gap: var(--gap);
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      align-items: center;
-    }
-
-    /* card image area */
-    .product-media{
-      width: 100%;
-      min-height: 200px;
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .product-media img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* right side info */
-    .product-info{
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 12px;
-    }
-
-    .product-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .product-title{
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-    .product-sub{
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* info grid for the 4 fields */
-    .product-specs{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-    }
-
-    .spec{
-      background: linear-gradient(180deg, #fbfdff, #ffffff);
-      border-radius: 10px;
-      padding: 12px;
-      box-shadow: 0 2px 8px rgba(15, 20, 40, 0.04);
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-
-    .spec .label{
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-    .spec .value{
-      font-weight:700;
-      font-size: 0.98rem;
-      color: #0b1220;
-    }
-
-    /* small helper (e.g., price or DP) */
-    .dp-badge{
-      background: linear-gradient(90deg, rgba(15,108,255,0.12), rgba(15,108,255,0.06));
-      border: 1px solid rgba(15,108,255,0.08);
-      color: var(--accent);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight:600;
-      font-size:0.9rem;
-    }
-
-    /* responsive: on small screens stack image above info */
-    @media (max-width: 720px){
-      .product-card{
-        grid-template-columns: 1fr;
+      .content h2 {
+        font-size: 1.3rem;
+        text-align: center;
       }
-      .product-media{
-        min-height: 220px;
+
+      .content p {
+        font-size: 0.95rem;
+        text-align: center;
       }
-      .product-specs{
-        grid-template-columns: 1fr;
+
+      .btn {
+        width: 100%;
+        font-size: 1rem;
       }
     }
-
-    /* small utility */
-    .small-muted{ color: var(--muted); font-size:0.86rem;}
-
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    margin: 40px;
-  }
-
-  h2 {
-    text-align: left;
-    color: #c0392b;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  th, td {
-    border: 1px solid #000;
-    text-align: center;
-    padding: 10px;
-  }
-
-  th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-  }
-
-  .highlight {
-    color: #d32f2f;
-    font-weight: bold;
-  }
-
-  img {
-    width: 100px;
-    display: block;
-    margin: 10px 18px;
-  }
-
-  caption {
-    caption-side: top;
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-
-
-
-
-
-
   </style>
 </head>
 <body>
@@ -308,42 +236,38 @@ body {
       <p>NELKON Pedal Dustbin | Foot Operated Dustbin | Stainless Steel Body Plastic Bucket inside Noise Less Cover | Waste & Recycling dustbin | Use for Home, Kitchen, Office (Silver) (5 Ltr)</p>
     </div>
   </div>
-  
 
-<h2>HAMPERS - DUSTBIN (Solid Black)</h2>
-<table>
-  <caption>SOLID BLACK</caption>
-  <thead>
-    <tr>
-      <th>CODE</th>
-      <th>SIZE</th>
-      <th>LTR</th>
-      <th>DP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>B-1</td><td>6” X 8”</td><td>5 LTR</td><td>Rs. 205/-</td></tr>
-    <tr><td>B-2</td><td>7” X 10”</td><td>6 LTR</td><td>Rs. 245/-</td></tr>
-    <tr><td>B-3</td><td>8” X 12”</td><td>10 LTR</td><td>Rs. 275/-</td></tr>
-    <tr><td>B-4</td><td>10” X 14”</td><td>18 LTR</td><td>Rs. 400/-</td></tr>
-    <tr><td>B-5</td><td>12” X 18”</td><td>22 LTR</td><td>Rs. 1060/-</td></tr>
-    <tr><td>B-6</td><td>10” X 24”</td><td>24 LTR</td><td>Rs. 1250/-</td></tr>
-    <tr><td>B-7</td><td>12” X 24”</td><td>30 LTR</td><td>Rs. 1400/-</td></tr>
-    <tr><td>B-8</td><td>12” X 28”</td><td>45 LTR</td><td>Rs. 1515/-</td></tr>
-    <tr><td>B-9</td><td>14” X 28”</td><td>50 LTR</td><td>Rs. 1680/-</td></tr>
-  </tbody>
-</table>
+  <h2>HAMPERS - DUSTBIN (Solid Black)</h2>
 
+  <div class="table-container">
+    <table>
+      <caption>SOLID BLACK</caption>
+      <thead>
+        <tr>
+          <th>CODE</th>
+          <th>SIZE</th>
+          <th>LTR</th>
+          <th>DP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td data-label="CODE">B-1</td><td data-label="SIZE">6” X 8”</td><td data-label="LTR">5 LTR</td><td data-label="DP">Rs. 205/-</td></tr>
+        <tr><td data-label="CODE">B-2</td><td data-label="SIZE">7” X 10”</td><td data-label="LTR">6 LTR</td><td data-label="DP">Rs. 245/-</td></tr>
+        <tr><td data-label="CODE">B-3</td><td data-label="SIZE">8” X 12”</td><td data-label="LTR">10 LTR</td><td data-label="DP">Rs. 275/-</td></tr>
+        <tr><td data-label="CODE">B-4</td><td data-label="SIZE">10” X 14”</td><td data-label="LTR">18 LTR</td><td data-label="DP">Rs. 400/-</td></tr>
+        <tr><td data-label="CODE">B-5</td><td data-label="SIZE">12” X 18”</td><td data-label="LTR">22 LTR</td><td data-label="DP">Rs. 1060/-</td></tr>
+        <tr><td data-label="CODE">B-6</td><td data-label="SIZE">10” X 24”</td><td data-label="LTR">24 LTR</td><td data-label="DP">Rs. 1250/-</td></tr>
+        <tr><td data-label="CODE">B-7</td><td data-label="SIZE">12” X 24”</td><td data-label="LTR">30 LTR</td><td data-label="DP">Rs. 1400/-</td></tr>
+        <tr><td data-label="CODE">B-8</td><td data-label="SIZE">12” X 28”</td><td data-label="LTR">45 LTR</td><td data-label="DP">Rs. 1515/-</td></tr>
+        <tr><td data-label="CODE">B-9</td><td data-label="SIZE">14” X 28”</td><td data-label="LTR">50 LTR</td><td data-label="DP">Rs. 1680/-</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-
-
-
-
-  
-<a href="index.html"><button class="btn">Back to Home</button></a>
-
+  <a href="index.html"><button class="btn">Back to Home</button></a>
 
 </body>
 </html>
+
 
 
