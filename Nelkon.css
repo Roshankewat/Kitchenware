@@ -140,8 +140,10 @@
 
 .box-new{
     height: 100%;
-    width: 180px;
-    margin-top: 30px;   
+    width: 140px;
+    margin-top: 30px; 
+    margin-left: 40px; 
+    align-items: auto; 
 }
 /* Overall Section */
 .shop-section {
