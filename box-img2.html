@@ -22,28 +22,26 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    /* ✅ Smooth One-by-One Slider with scroll */
+    /* ✅ Slider container */
     .slider {
       width: 500px;
       height: 500px;
       border-radius: 10px;
-      overflow-x: auto; /* allows manual scroll */
+      overflow-x: auto;
       scroll-behavior: smooth;
       margin-right: 20px;
       position: relative;
       flex-shrink: 0;
       scrollbar-width: none;
     }
-
     .slider::-webkit-scrollbar {
       display: none;
     }
 
     .slides {
       display: flex;
-      gap: 20px; /* gap between images */
+      gap: 20px;
       animation: slide 20s infinite;
-      /* ❌ width removed so it auto-adjusts (no blank block) */
     }
 
     .slides img {
@@ -60,15 +58,14 @@
       animation-play-state: paused;
     }
 
-    /* ✅ One-by-One Image Animation */
+    /* ✅ One-by-One Image Animation (Desktop) */
     @keyframes slide {
       0%, 10% { transform: translateX(0); }
       15%, 25% { transform: translateX(calc(-520px * 1)); }
       30%, 40% { transform: translateX(calc(-520px * 2)); }
       45%, 55% { transform: translateX(calc(-520px * 3)); }
       60%, 70% { transform: translateX(calc(-520px * 4)); }
-      75%, 85% { transform: translateX(0); }
-      90%, 100% { transform: translateX(0); }
+      75%, 100% { transform: translateX(0); }
     }
 
     .content {
@@ -86,7 +83,7 @@
       color: #333;
     }
 
-    /* ✅ Responsive Fix for Mobile */
+    /* ✅ Mobile Responsive Fix */
     @media (max-width: 768px) {
       .image-section {
         flex-direction: column;
@@ -95,34 +92,37 @@
 
       .slider {
         width: 100%;
-        height: 300px;
+        height: auto;
+        max-height: 320px;
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        overflow-x: scroll;
       }
 
       .slides {
-        width: max-content;
+        display: flex;
         gap: 10px;
-        animation: slideMobile 30s infinite;
+        width: max-content;
+        animation: slideMobile 25s infinite;
       }
 
       .slides img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        width: 85vw;     /* responsive width */
+        height: auto;
+        object-fit: cover;
       }
 
       @keyframes slideMobile {
         0%, 10% { transform: translateX(0); }
-        15%, 25% { transform: translateX(-110%); }
-        30%, 40% { transform: translateX(-220%); }
-        45%, 55% { transform: translateX(-330%); }
-        60%, 70% { transform: translateX(-440%); }
-        75%, 85% { transform: translateX(0); }
-        90%, 100% { transform: translateX(0); }
+        15%, 25% { transform: translateX(-95vw); }
+        30%, 40% { transform: translateX(-190vw); }
+        45%, 55% { transform: translateX(-285vw); }
+        60%, 70% { transform: translateX(-380vw); }
+        75%, 100% { transform: translateX(0); }
       }
     }
 
+    /* ✅ Table & Button styling */
     .btn {
       background-color: red;
       color: white;
@@ -178,7 +178,6 @@
         <img src="Black Pedal dustbin (3).jpeg" alt="">
         <img src="Black Pedal dustbin 4.jpeg" alt="">
         <img src="Black Pedal dustbin 5.jpg" alt="">
-        <!-- ✅ You can remove or add images — no blank block issue now -->
       </div>
     </div>
 
