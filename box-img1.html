@@ -1,323 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Punamiya Enterprises</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f2f2f2;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Punamiya Enterprises</title>
+<style>
+  /* Basic page */
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 18px;
+    background: #f2f2f2;
+    color: #222;
+  }
 
+  .image-section {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border: 1px solid #e4e4e4;
+  }
+
+  /* Slider box */
+  .slider {
+    width: 500px;               /* desktop default */
+    height: 500px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    flex-shrink: 0;
+    background: #f8f8f8;
+    padding: 6px;
+    scrollbar-width: none;      /* firefox */
+    position: relative;
+    scroll-snap-type: x mandatory; /* enable snap */
+  }
+  .slider::-webkit-scrollbar { display: none; } /* hide scrollbar - webkit */
+
+  /* Slide row */
+  .slides {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 6px;
+  }
+
+  /* Desktop images: fixed size */
+  .slides img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex: 0 0 500px;           /* prevents shrinking/overlap */
+    scroll-snap-align: start;  /* each image snaps to start */
+    user-select: none;
+    -webkit-user-drag: none;
+    background: #ddd;
+  }
+
+  .content { flex: 1; min-width: 180px; }
+  .content h2 { margin: 0 0 8px 0; color: #003d52; }
+  .content p { margin: 0; line-height: 1.5; color: #333; }
+
+  /* Table + button styles */
+  h2.section-title { color: #c0392b; margin-top: 14px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+  th, td { border: 1px solid #000; padding: 10px; text-align: center; }
+  th { background:#f8f8f8; }
+  caption { text-align:left; font-weight:bold; margin-bottom:6px; }
+
+  .btn {
+    display:inline-block;
+    background: red;
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 50%;
+  }
+
+  /* ===== Mobile responsive ===== */
+  @media (max-width: 768px) {
     .image-section {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 10px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* ✅ Fixed Image Slider */
-    .slider {
-      width: 500px;
-      height: 500px;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-right: 20px;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .slides {
-      display: flex;
-      width: 500%;
-      height: 100%;
-      animation: slide 13s infinite;
-    }
-
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    /* Keyframes for sliding images */
-    @keyframes slide {
-      0%   { margin-left: 0; }
-      20%  { margin-left: 0; }
-      25%  { margin-left: -100%; }
-      45%  { margin-left: -100%; }
-      50%  { margin-left: -200%; }
-      70%  { margin-left: -200%; }
-      75%  { margin-left: -300%; }
-      95%  { margin-left: -300%; }
-      100% { margin-left: 0; }
-    }
-
-    .content {
-      flex: 1;
-    }
-
-    .content h2 {
-      margin: 0;
-      color: #003d52;
-    }
-
-    .content p {
-      margin-top: 10px;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    /* ✅ Responsive Fix for Mobile */
-    @media (max-width: 768px) {
-      .image-section {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .slider {
-        width: 100%;
-        height: 300px; /* fixed height for mobile */
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-
-      .slides {
-        width: 500%;
-        height: 100%;
-      }
-
-      .slides img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* full image visible */
-        background-color: #fff;
-      }
-    }
-
-    .btn {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 150px;
-      text-align: left;
-      margin-top: 10px;
-      align-items: center;
-      margin-left: 40%;
-    }
-
-    :root {
-      --card-bg: #ffffff;
-      --surface: #f6f8fa;
-      --accent: #0f6cff;
-      --muted: #6b7280;
-      --radius: 12px;
-      --shadow: 0 6px 18px rgba(12, 20, 40, 0.08);
-      --gap: 18px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-
-    body {
-      margin: 20px;
-      background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 100%);
-      color: #0b1220;
-    }
-
-    .product-chart {
-      display: grid;
-      gap: 18px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .product-card {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: var(--gap);
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      align-items: center;
-    }
-
-    .product-media {
-      width: 100%;
-      min-height: 200px;
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .product-info {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 12px;
-    }
-
-    .product-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .product-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .product-sub {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .product-specs {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .spec {
-      background: linear-gradient(180deg, #fbfdff, #ffffff);
-      border-radius: 10px;
-      padding: 12px;
-      box-shadow: 0 2px 8px rgba(15, 20, 40, 0.04);
-      display: flex;
       flex-direction: column;
-      gap: 6px;
-    }
-
-    .spec .label {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .spec .value {
-      font-weight: 700;
-      font-size: 0.98rem;
-      color: #0b1220;
-    }
-
-    .dp-badge {
-      background: linear-gradient(90deg, rgba(15,108,255,0.12), rgba(15,108,255,0.06));
-      border: 1px solid rgba(15,108,255,0.08);
-      color: var(--accent);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 720px) {
-      .product-card {
-        grid-template-columns: 1fr;
-      }
-
-      .product-media {
-        min-height: 220px;
-      }
-
-      .product-specs {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .small-muted {
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    h2 {
-      text-align: left;
-      color: #c0392b;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #000;
-      text-align: center;
+      gap: 12px;
       padding: 10px;
     }
 
-    th {
-      background-color: #f8f8f8;
-      font-weight: bold;
+    .slider {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      padding: 6px;
     }
 
-    .highlight {
-      color: #d32f2f;
-      font-weight: bold;
+    /* Make each image exactly a viewport-width sized "frame" to avoid overlap */
+    .slides img {
+      width: 85vw;            /* image width on mobile */
+      height: 100%;
+      max-height: 320px;
+      flex: 0 0 85vw;        /* critical: forces each image to occupy its own slot */
+      object-fit: cover;
+      border-radius: 8px;
     }
 
-    img {
-      width: 100px;
-      display: block;
-      margin: 10px 18px;
-    }
+    /* when snapping we want a little padding so image sits centered nicely */
+    .slider { scroll-padding-left: 12px; }
+  }
 
-    caption {
-      caption-side: top;
-      text-align: left;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
+  /* small touch affordance hint */
+  .hint { font-size: 13px; color:#666; margin-top:6px; }
+</style>
 </head>
 <body>
 
   <div class="image-section">
-    <div class="slider">
-      <div class="slides">
-        <img src="dustbin.jpg" alt="">
-        <img src="dustbin 2.jpg" alt="">
-        <img src="dustbin 3.jpg" alt="">
-        <img src="dustbin 4.jpg" alt="">
-        <img src="Nelkon.js" alt="">
+    <div class="slider" id="slider">
+      <div class="slides" id="slides">
+        <img src="dustbin.jpg" alt="dustbin 1">
+        <img src="dustbin 2.jpg" alt="dustbin 2">
+        <img src="dustbin 3.jpg" alt="dustbin 3">
+        <img src="dustbin 4.jpg" alt="dustbin 4">
+        <img src="dustbin.jpg" alt="dustbin 5">
       </div>
     </div>
+
     <div class="content">
-      <h2>Hampers-Dustbins</h2>
-      <p>NELKON Pedal Dustbin | Foot Operated Dustbin | Stainless Steel Body Plastic Bucket inside Noise Less Cover | Waste & Recycling dustbin | Use for Home, Kitchen, Office (Silver) (5 Ltr)</p>
+      <h2>Hampers - Dustbins</h2>
+      <p>NELKON Pedal Dustbin | Foot Operated Dustbin | Stainless Steel Body with inner plastic bucket | Noise Less Cover | Use for Home, Kitchen, Office (Silver) (5 Ltr)</p>
+      <div class="hint">Swipe or drag the images. Hover/touch will pause auto-sliding.</div>
     </div>
   </div>
 
-  <h2>HAMPERS - DUSTBIN (Solid Black)</h2>
+  <h2 class="section-title">HAMPERS - DUSTBIN (Solid Black)</h2>
+
   <table>
     <caption>SOLID BLACK</caption>
     <thead>
-      <tr>
-        <th>CODE</th>
-        <th>SIZE</th>
-        <th>LTR</th>
-        <th>DP</th>
-      </tr>
+      <tr><th>CODE</th><th>SIZE</th><th>LTR</th><th>DP</th></tr>
     </thead>
     <tbody>
       <tr><td>B-1</td><td>6” X 8”</td><td>5 LTR</td><td>Rs. 205/-</td></tr>
@@ -332,8 +162,124 @@
     </tbody>
   </table>
 
-  <a href="index.html"><button class="btn">Back to Home</button></a>
+  <a href="index.html" class="btn">Back to Home</a>
+
+<script>
+/*
+  Auto-slide (optional) — respects user interaction:
+  - Automatically advances to next snapped image every `delay` ms.
+  - Pauses on mouseenter or touchstart.
+  - Works with variable image widths thanks to reading slider.clientWidth/child width.
+*/
+
+(function() {
+  const slider = document.getElementById('slider');
+  const slides = document.getElementById('slides');
+  const items = slides.querySelectorAll('img');
+  if (!slider || items.length <= 1) return;
+
+  let auto = true;            // enable/disable auto scroll
+  let delay = 3500;           // ms between auto scrolls
+  let paused = false;
+  let index = 0;
+
+  // compute width of one item (reads current layout) — supports responsive widths
+  function itemWidthAt(i = 0) {
+    const item = items[i];
+    if (!item) return slider.clientWidth;
+    const style = getComputedStyle(item);
+    const gap = parseFloat(getComputedStyle(slides).gap) || 0;
+    return Math.round(item.getBoundingClientRect().width + gap);
+  }
+
+  // scroll to target index (smooth)
+  function scrollToIndex(i) {
+    if (i < 0) i = 0;
+    if (i >= items.length) i = 0; // loop back
+    const item = items[i];
+    if (!item) return;
+    // align the left edge of the item to the slider left
+    const scrollLeft = item.offsetLeft - slides.offsetLeft;
+    slider.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    index = i;
+  }
+
+  // find current visible index (best-effort)
+  function currentIndex() {
+    const scrollCenter = slider.scrollLeft + 10; // small offset
+    let best = 0;
+    for (let i=0;i<items.length;i++){
+      if (items[i].offsetLeft <= scrollCenter) best = i;
+    }
+    return best;
+  }
+
+  // auto loop
+  let timer = null;
+  function startAuto() {
+    if (!auto || paused) return;
+    stopAuto();
+    timer = setInterval(() => {
+      if (paused) return;
+      const next = (currentIndex() + 1) % items.length;
+      scrollToIndex(next);
+    }, delay);
+  }
+  function stopAuto() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  // pause on user interaction
+  slider.addEventListener('mouseenter', () => { paused = true; stopAuto(); });
+  slider.addEventListener('mouseleave', () => { paused = false; startAuto(); });
+
+  // touch
+  slider.addEventListener('touchstart', () => { paused = true; stopAuto(); }, {passive:true});
+  slider.addEventListener('touchend', () => { paused = false; startAuto(); });
+
+  // when user manually scrolls, update index after a short timeout (snap settle)
+  let settleTimer;
+  slider.addEventListener('scroll', () => {
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(() => {
+      // after user stops scrolling, snap to nearest using scroll-snap (some browsers auto-snap)
+      // We'll also programmatically force exact start alignment to avoid half-visible images
+      const cur = currentIndex();
+      scrollToIndex(cur);
+    }, 120);
+  });
+
+  // Start auto-slide after small initial delay
+  setTimeout(() => { startAuto(); }, 700);
+
+  // Drag to scroll for desktop mouse (nice-to-have)
+  (function enableDragScroll() {
+    let isDown = false, startX = 0, scrollStart = 0;
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      paused = true; stopAuto();
+      slider.classList.add('dragging');
+      startX = e.pageX - slider.offsetLeft;
+      scrollStart = slider.scrollLeft;
+    });
+    document.addEventListener('mouseup', () => {
+      if (isDown) {
+        isDown = false;
+        paused = false; startAuto();
+        slider.classList.remove('dragging');
+      }
+    });
+    document.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.3;
+      slider.scrollLeft = scrollStart - walk;
+    });
+  })();
+
+})();
+</script>
 
 </body>
 </html>
-
