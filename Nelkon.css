@@ -139,8 +139,8 @@
 }
 
 .box-new{
-    height: 100%;
-    width: 140px;
+    height: 20px;
+    width: 150px;
     margin-top: 30px; 
     margin-left: 40px; 
     align-items: auto; 
@@ -496,7 +496,7 @@ nav .search_box input {
     padding: 0 10px;
     font-size: 20px;
     width: 350px;
-    border-top-left-radius: 5px 5px;
+    border-top-left-radius: 0px 0px;  /*chnage to the 5px 5px*/
 }
 
 nav .search_box span {
@@ -643,3 +643,46 @@ input[type="checkbox"] {
         transform: translateX(0);
     }
 }
+
+
+
+/*related to the search input
+
+/* --- Search Dropdown --- 8/ */
+.result-box {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.result-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.result-item:hover {
+  background: #f2f2f2;
+}
+
+.no-result {
+  padding: 10px;
+  color: #555;
+  text-align: center;
+}
+
+/* Ensure search_box is positioned for dropdown */
+.search_box {
+  position: relative;
+}
+
+
+
+
