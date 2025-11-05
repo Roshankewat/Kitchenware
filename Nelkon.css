@@ -702,7 +702,7 @@ input[type="checkbox"] {
 .search_box input[type="search"] {
   width: 100%;
   padding: 10px 40px 10px 10px;
-  border: 1px solid #ccc;
+  
   border-radius: auto;
   font-size: 16px;
   box-sizing: border-box;
@@ -757,6 +757,7 @@ input[type="checkbox"] {
     font-size: 14px;
   }
 }
+
 
 
 
