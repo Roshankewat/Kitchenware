@@ -678,11 +678,84 @@ input[type="checkbox"] {
   text-align: center;
 }
 
+
+
+
+
+
 /* Ensure search_box is positioned for dropdown */
 .search_box {
   position: relative;
 }
 
 
+
+/* ✅ Ensure search box fits mobile screens */
+.search_box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ✅ Make search input responsive */
+.search_box input[type="search"] {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* ✅ Results container stays below search box */
+.result-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+  max-height: 200px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* ✅ Each result item styling */
+.result-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+.result-item:last-child {
+  border-bottom: none;
+}
+.result-item:hover {
+  background: #f7f7f7;
+}
+
+/* ✅ "No products found" text styling */
+.no-result {
+  padding: 10px;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+/* ✅ Fix for mobile viewports */
+@media (max-width: 600px) {
+  .search_box {
+    width: 90%;
+  }
+  .result-box {
+    max-height: 150px;
+    font-size: 14px;
+  }
+}
 
 
