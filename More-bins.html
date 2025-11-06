@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+      
+      *{
+    margin: 0;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+    
+}
+
+/*box content*/
+* .box{
+  margin: auto;
+  padding: auto;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box-new{
+    height: 20px;
+    width: 150px;
+    margin-top: 30px; 
+    margin-left: 40px; 
+    align-items: auto; 
+}
+/* Overall Section */
+.shop-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #f2f2f2;
+  padding: 20px 0;
+}
+
+/* Each Product Box */
+.box {
+  background-color: white;
+  height: 350px;
+  width: 23%;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Inside Content */
+.box-content {
+  padding: 20px;
+}
+
+.box-content h2 {
+  font-size: 20px;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.box-img {
+  height: 230px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+/* For the “See more” link */
+.box-content p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.box-content p a {
+  text-decoration: none;
+  color: #007185;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.box-content p a:hover {
+  color: #c7511f;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 90%;
+  }
+
+  .box-content h2 {
+    font-size: 18px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="shop-section">
+        <div class="box1 box">
+            <div class="box-content">
+                <a href="box-img1.html">
+                <h2>Noise Less Cover</h2>
+                <a href="box-img1.html">
+            <div class="box-img box-new" style="background-image: url('dustbin.jpg');">
+                   
+            </div>
+                <p><a href="#">See More</a></p>
+                
+            </div>
+            
+        </div>
+        <div class="box2 box">
+            <div class="box-content">
+                <a href="box-img2.html">
+                <h2>Health & Personal Care</h2>
+                <a href="box-img2.html">
+            <div class="box-img box-new" style="background-image: url('Black Pedal dustbin (3).jpeg');"></div>
+                <p><a href="box-img2.html">See More</a></p>
+                </a>
+            </div>
+        </div>
+        <div class="box3 box">
+            <a href="box-img3.html">
+            
+            <div class="box-content">
+            <h2>Furniture</h2>
+        <div class="box-img box-new" style="background-image: url('box-img3 3.jpg');"></div>
+            <p><a href="box-img3.html">See More</a></p>
+            </a>
+        </div>
+    </div>
+        <div class="box4 box">
+            <a href="box-img4.html">
+            <div class="box-content">
+                <h2>Mobiles</h2>
+            <div class="box-img box-new" style="background-image: url('box-img4 HEAD.jpeg');"></div>
+                <p><a href="box-img4.html">See More</a></p>
+            </div>
+            </a>
+        </div>
+
+        <div class="box5 box">
+            <a href="box-img5.html">
+            <div class="box-content">
+                <h2>Make-up & Cusmetics</h2>
+            <div class="box-img box-new" style="background-image: url('box-img5 2.jpeg');"></div>
+                <p><a href="box-img5.html">See More</a></p>
+            </div>
+            </a>
+        </div>
+        <div class="box6 box">
+            <a href="box-img6.html">
+            <div class="box-content">
+                <h2>Swing Dustbin</h2>
+            <div class="box-img box-new" style="background-image: url('box-img6\ HEAD.jpg');"></div>
+                <p><a href="box-img6.html">See More</a></p>
+            </div>
+            </a>
+        </div>
+        <div class="box7 box">
+            <a href="box-img7.html">
+            <div class="box-content">
+            <h2>New Arrival & Toys</h2>
+        <div class="box-img box-new" style="background-image: url('box-img7 HEAD.jpeg');"></div>
+            <p><a href="box-img7.html">See More</a></p>
+        </div>
+        </a>
+    </div>
+        <div class="box8 box">
+            <a href="box-img8.html">
+            <div class="box-content">
+                <h2>Fashion & Trends</h2>
+            <div class="box-img box-new" style="background-image: url('box-img8 HEAD.jpg');"></div>
+                <p><a href="box-img8.html">See More</a></p>
+            </div>
+            </a>
+            
+        </div>
+    </div>
+</body>
+</html>
