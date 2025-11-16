@@ -705,6 +705,41 @@ input[type="checkbox"] {
   }
 }
 
+/*next java code with new changed item*/
+
+
+/* Search result dropdown */
+.result-box {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 999;
+  max-height: 250px;
+  overflow-y: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.result-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item:hover {
+  background: #f0f0f0;
+}
+
+.no-result {
+  padding: 10px;
+  color: red;
+  font-size: 14px;
+}
+
 
 
 
