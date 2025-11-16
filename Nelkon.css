@@ -6,15 +6,7 @@
     
 }
 
-.side-nav{
-  color: #003d52;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 40px;
-  position: relative;
-}
+
 
 
 /* slider*/
@@ -712,6 +704,7 @@ input[type="checkbox"] {
     font-size: 14px;
   }
 }
+
 
 
 
