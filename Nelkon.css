@@ -6,9 +6,6 @@
     
 }
 
-
-
-
 /* slider*/
 
 .slider{
@@ -329,7 +326,63 @@ ul a{
     position: fixed;
     z-index: 10;
 }
+/*  .main {
+    height: 100%;
+    margin-top: 60px;
+    padding: 10px 50px;
+}
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    margin-top: 60px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+    background: #2e86de;
+}
 
+*/
+
+/*
+#openSidebarMenu:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input#openSidebarMenu{
+    display: none;
+}
+.sidebarIconToggle {
+  height: 22px;
+    width: 22px;
+    position: absolute;
+    z-index: 99;
+    top: 22px;
+    left: 15px;
+    transition: all 0.3s;
+    cursor: pointer; 
+}
+.spinner {
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.spinner.middle ,
+.spinner.bottom{
+    margin-top: 3px;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.middle {
+    opacity: 0;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.top {
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.bottom {
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
 
 
 /*dropdown menu*/
@@ -625,17 +678,17 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-
-
-
-
-
 /* Ensure search_box is positioned for dropdown */
 .search_box {
   position: relative;
 }
 
 
+
+
+
+
+/*other input css*/
 
 /* ✅ Ensure search box fits mobile screens */
 .search_box {
@@ -704,44 +757,3 @@ input[type="checkbox"] {
     font-size: 14px;
   }
 }
-
-/*next java code with new changed item*/
-
-
-/* Search result dropdown */
-.result-box {
-  position: absolute;
-  top: 45px;
-  left: 0;
-  width: 100%;
-  background: white;
-  border: 1px solid #ccc;
-  z-index: 999;
-  max-height: 250px;
-  overflow-y: auto;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.result-item {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  border-bottom: 1px solid #eee;
-}
-
-.result-item:hover {
-  background: #f0f0f0;
-}
-
-.no-result {
-  padding: 10px;
-  color: red;
-  font-size: 14px;
-}
-
-
-
-
-
-
