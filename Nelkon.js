@@ -1,36 +1,31 @@
-
 document.addEventListener("DOMContentLoaded", function () {
+
   const searchBox = document.querySelector(".search_box");
   const searchInput = searchBox.querySelector("input[type='search']");
-  const searchIcon =
-    searchBox.querySelector(".fa-search, .search-icon, button"); // updated selector
+  const searchIcon = searchBox.querySelector(".fa-search, .search-icon, button");
 
-  // ✅ Product list
   const products = [
     { name: "Noise Less Cover", link: "box-img1.html" },
-    { name: "Noise less bins", link: "box-img2.html" },
-    { name: "Cutomize Bins", link: "box-img3.html" },
-    { name: "Customize solid Bins", link: "box-img4.html" },
-    { name: "Noise less cover", link: "box-img5.html" },
+    { name: "Health & Personal Care", link: "box-img2.html" },
+    { name: "Furniture", link: "box-img3.html" },
+    { name: "Mobiles", link: "box-img4.html" },
+    { name: "Make-up & Cusmetics", link: "box-img5.html" },
     { name: "Swing Dustbin", link: "box-img6.html" },
-    { name: "Gardener Bins", link: "box-img7.html" },
-    { name: "Small Custom Bins", link: "box-img8.html" },
-    { name: "Chair", link: "chair.html" },
-    { name: "More-bins", link: "More-bins.html" },
-    { name: "Customize-bin", link: "Customize-bin.html" },
-    
+    { name: "New Arrival & Toys", link: "box-img7.html" },
+    { name: "Fashion & Trends", link: "box-img8.html" },
   ];
 
   const resultBox = document.createElement("div");
   resultBox.className = "result-box";
   searchBox.appendChild(resultBox);
 
-  // ✅ Show product results
+  // ✅ Show results
   function showResults(query) {
     resultBox.innerHTML = "";
+
     if (query === "") return;
 
-    const matches = products.filter((p) =>
+    const matches = products.filter(p =>
       p.name.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -39,59 +34,50 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    matches.forEach((p) => {
+    matches.forEach(p => {
       const item = document.createElement("div");
       item.className = "result-item";
       item.textContent = p.name;
-      item.addEventListener("click", () => {
-        window.location.href = p.link;
-      });
+      item.onclick = () => window.location.href = p.link;
       resultBox.appendChild(item);
     });
   }
 
   // ✅ While typing
-  searchInput.addEventListener("input", function () {
+  searchInput.addEventListener("input", () => {
     showResults(searchInput.value.trim());
   });
 
-  // ✅ When pressing Enter (no popup alert)
+  // ✅ Enter key
   searchInput.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
-      const query = searchInput.value.trim().toLowerCase();
-      const match = products.find((p) =>
-        p.name.toLowerCase().includes(query)
-      );
-      if (match) {
-        window.location.href = match.link;
-      } else {
-        // show "No products found" in result box instead of alert
-        resultBox.innerHTML = `<p class="no-result">No products found</p>`;
-      }
+
+      const query = searchInput.value.trim();
+
+      if (query === "") return;   // 🔴 FIX
+
+      showResults(query);
     }
   });
 
-  // ✅ When clicking search icon (no popup alert)
+  // ✅ Search icon click
   if (searchIcon) {
     searchIcon.addEventListener("click", function () {
-      const query = searchInput.value.trim().toLowerCase();
-      const match = products.find((p) =>
-        p.name.toLowerCase().includes(query)
-      );
-      if (match) {
-        window.location.href = match.link;
-      } else {
-        // show "No products found" in result box instead of alert
-        resultBox.innerHTML = `<p class="no-result">No products found</p>`;
-      }
+
+      const query = searchInput.value.trim();
+
+      if (query === "") return;   // 🔴 FIX
+
+      showResults(query);
     });
   }
 
-  // ✅ Hide results when clicking outside
+  // ✅ Hide results on outside click
   document.addEventListener("click", (e) => {
-    if (!searchBox.contains(e.target)) resultBox.innerHTML = "";
+    if (!searchBox.contains(e.target)) {
+      resultBox.innerHTML = "";
+    }
   });
+
 });
-
-
