@@ -6,13 +6,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const products = [
     { name: "Noise Less Cover", link: "box-img1.html" },
-    { name: "Health & Personal Care", link: "box-img2.html" },
-    { name: "Furniture", link: "box-img3.html" },
-    { name: "Mobiles", link: "box-img4.html" },
-    { name: "Make-up & Cusmetics", link: "box-img5.html" },
+    { name: "Noise less bins", link: "box-img2.html" },
+    { name: "Pedal bin", link: "box-img3.html" },
+    { name: "Hamper bin", link: "box-img4.html" },
+    { name: "Noise less cover-bin", link: "box-img5.html" },
     { name: "Swing Dustbin", link: "box-img6.html" },
-    { name: "New Arrival & Toys", link: "box-img7.html" },
-    { name: "Fashion & Trends", link: "box-img8.html" },
+    { name: "Gardener bin", link: "box-img7.html" },
+    { name: "Push can solid", link: "box-img8.html" },
+
+    { name: "Rabit bin", link: "morebin1.html" },
+    { name: "Bird bin", link: "morebin2.html" },
+    { name: "Penguin bin", link: "morebin3.html" },
+    { name: "Frog bin", link: "morebin4.html" },
+    { name: "Brinjal", link: "morebin5.html" },
+    { name: "Dolphin bin", link: "morebin6.html" },
+    { name: "Gardener bin", link: "box-img7.html" },
+    { name: "Push can solid", link: "box-img8.html" },
   ];
 
   const resultBox = document.createElement("div");
